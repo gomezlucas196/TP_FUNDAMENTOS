@@ -1,7 +1,7 @@
 def cifrar_cesar(mensaje, clave):
     #Esta funcion recibe un mensaje y una clave(Que sirve para encripto cesar) 
     #y retorna el mismo mensaje pero encriptado en cesar! cada letra segun su orden del
-    #abecedario se le suman las posiciones indicadas
+    #abecedario se le suman las posiciones indicadas AUTOR: Lucas Gomez
     """
     >>> cifrar_cesar("HOLA MUNDO 123", 3)
     'KROD PXQGR 456'
