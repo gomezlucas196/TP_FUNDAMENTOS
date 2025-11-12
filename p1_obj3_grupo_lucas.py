@@ -19,6 +19,8 @@ def cifrar_cesar(msj, clave):
     return res
 
 def descifrar_cesar(msj, clave):
+    #La inversa de la funcion para encriptar cesar
+    #Autor : Lucas gomez
     """
     Descifra un mensaje cifrado con el método César.
 
@@ -61,6 +63,8 @@ def cifrar_atbash(mensaje):
 
 
 def descifrar_atbash(mensaje):
+    #La inversa de encriptacion atbash
+    #Autor : Lucas gomez
     """
     >>> descifrar_atbash("SLOZ NFMWL")
     'HOLA MUNDO'
@@ -89,6 +93,8 @@ def descifrar_atbash(mensaje):
 # INTERFAZ
 
 def ventana_bienvenida():
+    #Crea la ventana de bienvenida
+    #Autor: Lucas Gomez
     ven = Tk()
     ven.title("TP Grupal Parte 1 - Grupo: lucas")
     ven.geometry("480x240")
@@ -111,6 +117,8 @@ def ventana_bienvenida():
     ven.mainloop()
 
 def abrir_principal(ven_ant):
+    #Crea la ventana Para encriptar, y destruye la anterior
+    #Autor:Lucas gomez
     ven_ant.destroy()
 
     ven = Tk()
@@ -131,8 +139,11 @@ def abrir_principal(ven_ant):
 
     txt_out = Text(ven, width=55, height=5, state="disabled")
     txt_out.grid(row=5, column=0, columnspan=4, padx=10, pady=10)
-
+  
     def mostrar(t):
+   #0Estas funciones son para modificar lo que son los cartelitos, toman y modifican sus valores
+   #Autor:Lucas gomez
+
         txt_out.config(state="normal")
         txt_out.delete("1.0", END)
         txt_out.insert("1.0", t)
