@@ -19,23 +19,72 @@ def cifrar_cesar(msj, clave):
     return res
 
 def descifrar_cesar(msj, clave):
+    """
+    Descifra un mensaje cifrado con el método César.
+
+    >>> descifrar_cesar("KROD PXQGR 456", 3)
+    'HOLA MUNDO 123'
+    >>> descifrar_cesar("A0", 1)
+    'Z9'
+    >>> descifrar_cesar("efgbcd", 4)
+    'abcxyz'
+    >>> descifrar_cesar("Ovsh890", 7)
+    'Hola123'
+    >>> descifrar_cesar("KROD", 3)
+    'HOLA'
+    >>> descifrar_cesar("mtqf rzsit", 5)
+    'hola mundo'
+    >>> descifrar_cesar("Bqttq345", 2)
+    'Zorro123'
+    >>> descifrar_cesar("Giwev#6469", 4)
+    'Cesar#2025'
+    >>> descifrar_cesar("Zidryx", 10)
+    'Python'
+    >>> descifrar_cesar("EFG bcd 123", 4)
+    'ABC xyz 789'
+    """
     return cifrar_cesar(msj, -int(clave))
 
-def cifrar_atbash(msj):
-    res = ""
-    for c in msj:
+def cifrar_atbash(mensaje):
+    
+    resultado = ""
+    for c in mensaje:
         if 'A' <= c <= 'Z':
-            res += chr(122 - (ord(c) - 65))
+            resultado += chr(ord('Z') - (ord(c) - ord('A')))
         elif 'a' <= c <= 'z':
-            res += chr(90 - (ord(c) - 97))
+            resultado += chr(ord('z') - (ord(c) - ord('a')))
         elif '0' <= c <= '9':
-            res += chr(57 - (ord(c) - 48))
+            resultado += chr(ord('9') - (ord(c) - ord('0')))
         else:
-            res += c
-    return res
+            resultado += c
+    return resultado
 
-def descifrar_atbash(msj):
-    return cifrar_atbash(msj)
+
+def descifrar_atbash(mensaje):
+    """
+    >>> descifrar_atbash("SLOZ NFMWL")
+    'HOLA MUNDO'
+    >>> descifrar_atbash("zyxCBA")
+    'abcXYZ'
+    >>> descifrar_atbash("876")
+    '123'
+    >>> descifrar_atbash("A0")
+    'Z9'
+    >>> descifrar_atbash("Sloz876")
+    'Hola123'
+    >>> descifrar_atbash("Kbgslm")
+    'Python'
+    >>> descifrar_atbash("Ufmwznvmglh")
+    'Fundamentos'
+    >>> descifrar_atbash("Zgyzhs")
+    'Atbash'
+    >>> descifrar_atbash("XRUIZWL XVHZI")
+    'CIFRADO CESAR'
+    >>> descifrar_atbash("876zyxCBA!@#")
+    '123abcXYZ!@#'
+    """
+    # Atbash es simétrico: cifrar = descifrar
+    return cifrar_atbash(mensaje)
 
 # INTERFAZ
 
@@ -123,6 +172,8 @@ def abrir_principal(ven_ant):
     ven.mainloop()
 
 def main():
+    import doctest
     ventana_bienvenida()
+    print(doctest.testmod())
 
 main()
